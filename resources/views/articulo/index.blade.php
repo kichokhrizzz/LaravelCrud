@@ -1,12 +1,17 @@
-@extends('layouts.plantillabase')
+@extends('adminlte::page')
 
-@section('contenido')
+@section('title', 'CRUD con Laravel 8')
 
+@section('content_header')
+    <h1>Listado de articulos</h1>
+@stop
+
+@section('content')
 <a href="articulos/create" class="btn btn-primary"> Crear nuevo artìculo </a>
 
-<table class="table table-dark table-striped mt-4">
+<table id="articulos" class="table table-striped table-bordered shadow-lg mt-4" style="width:100%">
 
-    <thead>
+    <thead class="bg-primary text-white">
         <tr>
             <th class="col">ID</th>
             <th class="col">Còdigo</th>
@@ -38,5 +43,23 @@
     </tbody>
 
 </table>
+@stop
 
-@endsection
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css">
+@stop
+
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+        $('#articulos').DataTable({
+            "lengthMenu": [[ 5,10,50,-1], [5,10,50, "All" ] ]
+        });
+    } );
+    </script>
+@stop

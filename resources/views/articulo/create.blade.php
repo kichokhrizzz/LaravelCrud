@@ -1,10 +1,13 @@
-@extends('layouts.plantillabase')
+@extends('adminlte::page')
 
-@section('contenido')
+@section('title', 'CRUD con Laravel 8')
 
-<h1>Crear un nuevo registro</h1>
+@section('content_header')
+    <h1>Crear un nuevo registro</h1>
+@stop
 
-<form action="/articulos" method="POST">
+@section('content')
+    <form action="/articulos" method="POST">
 
     @csrf
 
@@ -39,6 +42,13 @@
     <a class="btn btn-secondary" href="/articulos" tabindex="5">Cancelar</a>
     <button type="submit"  class="btn btn-primary" tabindex="4">Guardar</button>
 
-</form>
+    </form>
+@stop
 
-@endsection
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+@stop
+
+@section('js')
+    
+@stop
